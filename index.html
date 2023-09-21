@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM Event Explore</title>
+    </head>
+
+    <body>
+        <h1>Explore DOM Event</h1>
+
+        <!-- Button to change background color -->
+        <button onclick="makeGreen()">Make Green</button>
+
+        <button id="make-red">Make Red</button>
+        <button id="make-purple">Make Purple</button>
+        <button id="make-yellow">Make Yellow</button>
+
+        <div id="comment-container">
+            <!-- Existing comments -->
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit...</p>
+            <p>Nulla porro sunt exercitationem aspernatur quas, doloribus...</p>
+            <p>Doloremque vero nesciunt est ea culpa eum totam cum ducimus...</p>
+        </div>
+
+        <div>
+            <!-- Textarea to enter comments -->
+            <textarea name="text" id="comment-box" cols="50" rows="5"></textarea>
+            <br>
+            <button id="btn-post">Post</button>
+        </div>
+
+        <script>
+            // Function to change the background color to green
+            function makeGreen() {
+                document.body.style.backgroundColor = "green";
+            }
+
+            // Add event listeners to buttons
+            document.getElementById("make-red").addEventListener("click", function () {
+                document.body.style.backgroundColor = "red";
+            });
+
+            document.getElementById("make-purple").addEventListener("click", function () {
+                document.body.style.backgroundColor = "purple";
+            });
+
+            document.getElementById("make-yellow").addEventListener("click", function () {
+                document.body.style.backgroundColor = "yellow";
+            });
+
+            // Button click event to post a comment
+            document.getElementById("btn-post").addEventListener("click", function () {
+                const commentBox = document.getElementById("comment-box");
+                const newComment = commentBox.value;
+
+                if (newComment.trim() !== "") { // Check if the comment is not empty
+                    const commentContainer = document.getElementById("comment-container");
+                    const p = document.createElement("p");
+                    p.innerText = newComment;
+                    commentContainer.appendChild(p);
+                    commentBox.value = ""; // Clear the comment box
+                }
+            });
+        </script>
+    </body>
+
+</html>
