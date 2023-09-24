@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegate Bubble Mama</title>
+</head>
+<body>
+    <section>
+        <h1>Explore Delegate Mama</h1>
+        <ul id="list-container">
+            <li class="list">Lorem, ipsum.</li>
+            <li class="list">Enim, corrupti!</li>
+            <li class="list">Numquam, quibusdam.</li>
+            <li class="list">Minus, sit.</li>
+            <li class="list">Nostrum, nihil.</li>
+        </ul>
+        <button id="btn-add-item">add new item</button>
+
+    </section>
+    <script>
+        // const items = document.getElementsByClassName('list')
+        // for( const item of items){
+        //    item.addEventListener('click',function(event){
+        //     event.target.parentNode.removeChild(event.target)
+        // })
+        // }
+            document.getElementById('list-container').addEventListener('click',function(event){
+                event.target.parentNode.removeChild(event.target)
+            })
+
+       document.getElementById('btn-add-item').addEventListener('click',function(){
+         const listContainer = document.getElementById('list-container')
+         const li =document.createElement('li')
+         li.innerText = 'new Item added mama!'
+         li.classList.add('list')
+         listContainer.appendChild(li)
+
+         
+       })
+
+    </script>
+</body>
+</html>
